@@ -1,0 +1,12 @@
+[Unit]
+Description=Keyboard backlight manager
+Wants=multi-user.target
+
+# Since our service relies on DBus, we use 'dbus' as the type and provide the bus used by our service.
+[Service]
+Type=dbus
+BusName=localhost.KbdBacklight
+ExecStart=/usr/local/bin/kbdbacklightd
+
+[Install]
+WantedBy=default.target
